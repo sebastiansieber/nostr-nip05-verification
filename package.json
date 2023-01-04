@@ -1,0 +1,23 @@
+{
+  "name": "nostr-relay-red",
+  "version": "0.0.1",
+  "description": "Application to dynamically spin up Nostr relays.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebastiansieber/nostr-relay-red.git"
+  },
+  "author": "Sebastian Sieber",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sebastiansieber/nostr-relay-red/issues"
+  },
+  "homepage": "https://github.com/sebastiansieber/nostr-relay-red#readme",
+  "dependencies": {
+    "cloudflare": "^2.9.1",
+    "express": "^4.18.2"
+  }
+}
