@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  nostr-relay-red:
+    build: .
+    container_name: nostr-relay-red
+    ports:
+      - 86:86
+    environment:
+      - CF_API_TOKEN="{$CF_API_TOKEN}"
+      - CF_ZONE_ID="{$CF_ZONE_ID}"
+networks:
+  default:
+    name: proxynet
+    external: true
+
