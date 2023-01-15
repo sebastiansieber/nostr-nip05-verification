@@ -31,10 +31,10 @@ const app = express();
 //app.use(cors());
 //app.options('*', cors());
 
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
     //var v = process.env.CF_API_TOKEN + " : " + process.env.CF_API_TOKEN;
     res.send("Hello world!");
-});
+});*/
 
 app.get('/.well-known/nostr.json', async (req, res) => {
     var resp = JSON.parse(`
@@ -47,7 +47,7 @@ app.get('/.well-known/nostr.json', async (req, res) => {
     res.send(resp);
 });
 
-app.get('/dns', async (req, res) => {
+/*app.get('/dns', async (req, res) => {
     var dns = await browseDnsRecords(CF_ZONE_ID);
     res.send(dns);
 });
@@ -63,7 +63,7 @@ app.get('/add-dns-record', async (req, res) => {
     var dns = await addDnsRecord(CF_ZONE_ID, dns_record);
 
     res.send(dns);
-});
+});*/
 
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}.`);

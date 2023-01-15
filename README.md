@@ -1,2 +1,2 @@
-# nostr-relay-red
+# Nostr NIP-05 Verification Server
  
