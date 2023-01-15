@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sebastiansieber/nostr-relay-red.git"
+    "url": "git+https://github.com/sebastiansieber/nostr-nip05-verification.git"
   },
   "author": "Sebastian Sieber",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sebastiansieber/nostr-relay-red/issues"
+    "url": "https://github.com/sebastiansieber/nostr-nip05-verification/issues"
   },
-  "homepage": "https://github.com/sebastiansieber/nostr-relay-red#readme",
+  "homepage": "https://github.com/sebastiansieber/nostr-nip05-verification#readme",
   "dependencies": {
     "cloudflare": "^2.9.1",
     "express": "^4.18.2"
