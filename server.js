@@ -32,15 +32,16 @@ const app = express();
 //app.options('*', cors());
 
 app.get('/', (req, res) => {
-    var v = process.env.CF_API_TOKEN + " : " + process.env.CF_API_TOKEN;
-    res.send(v);
+    //var v = process.env.CF_API_TOKEN + " : " + process.env.CF_API_TOKEN;
+    res.send("Hello world!");
 });
 
 app.get('/.well-known/nostr.json', async (req, res) => {
     var resp = JSON.parse(`
     {
         "names": {
-        "sebastian": "c61ca1ee4f85a8d0733a07434fd460602da9345abf9a0592a0a5948f16dd3c5e"
+        "sebastian": "c61ca1ee4f85a8d0733a07434fd460602da9345abf9a0592a0a5948f16dd3c5e",
+        "marcelo": "339db62c91c8cfa8f085f89f115f1ad95df10ce749730239b6054d2453332908"
     }
     }`);
     res.send(resp);

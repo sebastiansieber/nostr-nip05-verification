@@ -1,8 +1,8 @@
 {
-  "name": "nostr-relay-red",
+  "name": "nostr-nip05-verification",
   "version": "0.0.1",
   "description": "Application to dynamically spin up Nostr relays.",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
