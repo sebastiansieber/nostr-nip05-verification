@@ -21,7 +21,7 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=proxy"
       - "traefik.http.routers.nip05-secure.entrypoints=websecure"
-      - "traefik.http.routers.nip05-secure.rule=(Host(`test.relay.red`) && PathPrefix(`/.well-known`))"
+      - "traefik.http.routers.nip05-secure.rule=(Host(`relay.red`) && PathPrefix(`/.well-known`))"
 networks:
   proxy:
     external: true
