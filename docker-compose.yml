@@ -17,6 +17,11 @@ services:
       - DB_NAME=$DB_NAME
       - DB_USER=$DB_USER
       - DB_PASSWORD=$DB_PASSWORD
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+      - "traefik.http.routers.nip05-secure.entrypoints=websecure"
+      - "traefik.http.routers.nip05-secure.rule=(Host(`test.relay.red`) && PathPrefix(`/.well-known`))"
 networks:
   proxy:
     external: true
