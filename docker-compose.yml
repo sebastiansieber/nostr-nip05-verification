@@ -5,6 +5,7 @@ services:
       context: .
       dockerfile: ./Dockerfile
     container_name: nip05-verification
+    restart: unless-stopped
     ports:
       - 86:86
     networks:

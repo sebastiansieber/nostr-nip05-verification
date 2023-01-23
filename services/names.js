@@ -1,30 +1,30 @@
+//const { query } = require('./db');
 const db = require('./db');
 const helper = require('../helper');
 const config = require('../config');
 
 async function getMultiple(page = 1) {
     const offset = helper.getOffset(page, config.listPerPage);
-    const rows = await db.query(
-        `SELECT name, pubkey FROM name LIMIT ${offset},${config.listPerPage}`
-    );
-    const data = helper.emptyOrRows(rows);
+    const sql = `SELECT name, pubkey FROM name LIMIT ${offset},${config.listPerPage}`;
+
+    const [result] = await db.execute(sql);
     const meta = { page };
 
     return {
-        data,
+        result,
         meta
     }
 }
 
 async function getByName(name) {
-    const row = await db.query(
-        `SELECT name, pubkey FROM name WHERE name="${name}"`
-    );
+    const sql = `SELECT name, pubkey FROM name WHERE name="${name}"`;
 
-    if (row && row.length == 1) {
+    const [result] = await db.execute(sql);
+
+    if (result && result.length == 1) {
         var resp = JSON.parse(`{
             "names": {
-                "${row[0].name}": "${row[0].pubkey}"
+                "${result[0].name}": "${result[0].pubkey}"
             }
         }`);
 
@@ -35,18 +35,17 @@ async function getByName(name) {
 }
 
 async function getAll() {
-    const rows = await db.query(
-        `SELECT name, pubkey FROM name`
-    );
-    const data = helper.emptyOrRows(rows);
+    const sql = `SELECT name, pubkey FROM name`;
 
-    let result = data.map(row => {
-        return('\"' + row.name + '\": \"' + row.pubkey + '\"');
+    const [result] = await db.execute(sql);
+
+    let data = result.map(row => {
+        return ('\"' + row.name + '\": \"' + row.pubkey + '\"');
     });
 
     var resp = JSON.parse(`{
         "names": {
-            ${result}
+            ${data}
         }
     }`);
 
