@@ -1,5 +1,6 @@
 'use strict';
 const express = require('express');
+const helmet = require('helmet');
 
 const PORT = process.env.APP_PORT;
 
@@ -9,6 +10,7 @@ app.use(
         extended: true,
     })
 );
+app.use(helmet());
 
 const namesRouter = require("./routes/names");
 app.use("/.well-known", namesRouter);

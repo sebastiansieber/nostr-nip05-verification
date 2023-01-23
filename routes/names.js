@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const names = require('../services/names');
 
-/* GET NIP-05 names from database */
 router.get('/paginate', async function (req, res, next) {
     try {
         res.json(await names.getMultiple(req.query.page));
