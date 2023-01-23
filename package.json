@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/sebastiansieber/nostr-nip05-verification#readme",
   "dependencies": {
+    "ajv": "^8.12.0",
     "cloudflare": "^2.9.1",
     "express": "^4.18.2",
     "helmet": "^6.0.1",
