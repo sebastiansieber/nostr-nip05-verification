@@ -1,9 +1,9 @@
 const mysql = require('mysql2/promise');
 const config = require('../config');
 
-async function query(sql, params) {
-    const pool = await mysql.createPool(config.db);
+const pool = mysql.createPool(config.db);
 
+async function query(sql, params) {
     pool.getConnection((err, connection) => {
         if (err) {
             if (err.code === 'PROTOCOL_CONNECTION_LOST') {
