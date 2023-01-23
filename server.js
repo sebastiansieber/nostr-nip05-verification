@@ -10,7 +10,7 @@ app.use(
         extended: true,
     })
 );
-//app.use(helmet());
+app.use(helmet());
 app.use(cors())
 
 const namesRouter = require("./routes/names");
