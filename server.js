@@ -13,9 +13,9 @@ app.use(
 const namesRouter = require("./routes/names");
 app.use("/.well-known", namesRouter);
 
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
     res.status(200).json({ message: "ok" });
-});
+});*/
 
 /* Error handler middleware */
 app.use((err, req, res, next) => {
