@@ -4,7 +4,6 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    image: sebastiansieber/nip05-verification:0.1
     container_name: nip05-verification
     ports:
       - 86:86
