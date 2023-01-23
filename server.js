@@ -1,6 +1,7 @@
 'use strict';
 const express = require('express');
 const helmet = require('helmet');
+const cors = require('cors');
 
 const PORT = process.env.APP_PORT;
 
