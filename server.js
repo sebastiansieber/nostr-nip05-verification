@@ -12,14 +12,12 @@ app.use(
     })
 );
 app.use(helmet());
-app.use(cors())
+app.use(cors({
+    origin: '*'
+}));
 
 const namesRouter = require("./routes/names");
 app.use("/.well-known", namesRouter);
-
-/*app.get('/', (req, res) => {
-    res.status(200).json({ message: "ok" });
-});*/
 
 /* Error handler middleware */
 app.use((err, req, res, next) => {
