@@ -21,6 +21,8 @@ services:
       - "traefik.docker.network=proxy"
       - "traefik.http.routers.nip05-secure.entrypoints=websecure"
       - "traefik.http.routers.nip05-secure.rule=(Host(`relay.red`) && PathPrefix(`/.well-known`))"
+      - "traefik.http.middlewares.cors.headers.customResponseHeaders.Access-Control-Allow-Origin=*"
+      - "traefik.http.routers.nip05-secure.middlewares=cors"
 networks:
   proxy:
     external: true
