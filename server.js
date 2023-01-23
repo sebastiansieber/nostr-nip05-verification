@@ -1,6 +1,6 @@
 'use strict';
 const express = require('express');
-const helmet = require('helmet');
+//const helmet = require('helmet');
 const cors = require('cors');
 
 const PORT = process.env.APP_PORT;
@@ -11,7 +11,7 @@ app.use(
         extended: true,
     })
 );
-app.use(helmet());
+//app.use(helmet());
 app.use(cors({
     origin: '*'
 }));
