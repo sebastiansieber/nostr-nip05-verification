@@ -4,7 +4,7 @@ const config = require('../config');
 const pool = mysql.createPool(config.db);
 
 async function query(sql, params) {
-    pool.getConnection((err, connection) => {
+    /*pool.getConnection((err, connection) => {
         if (err) {
             if (err.code === 'PROTOCOL_CONNECTION_LOST') {
                 console.error('Database connection was closed.')
@@ -18,9 +18,9 @@ async function query(sql, params) {
         }
         if (connection) connection.release()
         return
-    })
+    })*/
 
-    const [results,] = await pool.execute(sql, params);
+    const [results,] = await pool.query(sql, params);
 
     return results;
 }
