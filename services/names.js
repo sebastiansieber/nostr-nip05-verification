@@ -4,9 +4,9 @@ const config = require('../config');
 
 async function getMultiple(page = 1) {
     const offset = helper.getOffset(page, config.listPerPage);
-    const sql = `SELECT name, pubkey FROM name LIMIT ${offset},${config.listPerPage}`;
+    const sql = `SELECT name, pubkey FROM name LIMIT ?, ?`;
 
-    const [result] = await db.execute(sql);
+    const [result] = await db.query(sql, [offset, config.listPerPage]);
     const meta = { page };
 
     return {
@@ -16,9 +16,9 @@ async function getMultiple(page = 1) {
 }
 
 async function getByName(name) {
-    const sql = `SELECT name, pubkey FROM name WHERE name="${name}"`;
+    const sql = `SELECT name, pubkey FROM name WHERE name = ?`;
 
-    const [result] = await db.execute(sql);
+    const [result] = await db.query(sql, [name]);
 
     if (result && result.length == 1) {
         var resp = JSON.parse(`{
@@ -36,7 +36,7 @@ async function getByName(name) {
 async function getAll() {
     const sql = `SELECT name, pubkey FROM name`;
 
-    const [result] = await db.execute(sql);
+    const [result] = await db.query(sql);
 
     let data = result.map(row => {
         return ('\"' + row.name + '\": \"' + row.pubkey + '\"');
