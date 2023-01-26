@@ -1,3 +1,5 @@
+// Github: https://github.com/sebastiansieber/nostr-nip05-verification
+
 'use strict';
 const express = require('express');
 const helmet = require('helmet');
