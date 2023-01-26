@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  nip05-verification:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: nip05-verification
+    restart: unless-stopped
+    ports:
+      - 86:86
+    networks:
+      - proxy
+    environment:
+      - APP_PORT=$APP_PORT
+      - DB_HOST=$DB_HOST
+      - DB_PORT=$DB_PORT
+      - DB_NAME=$DB_NAME
+      - DB_USER=$DB_USER
+      - DB_PASSWORD=$DB_PASSWORD
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=proxy"
+      - "traefik.http.routers.nip05-secure.entrypoints=websecure"
+      - "traefik.http.routers.nip05-secure.rule=(Host(`relay.red`) && PathPrefix(`/.well-known`))"
+      - "traefik.http.middlewares.cors.headers.customResponseHeaders.Access-Control-Allow-Origin=*"
+      - "traefik.http.routers.nip05-secure.middlewares=cors"
+networks:
+  proxy:
+    external: true

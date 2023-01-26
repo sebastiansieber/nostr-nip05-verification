@@ -1,0 +1,27 @@
+{
+  "name": "nostr-nip05-verification",
+  "version": "0.0.1",
+  "description": "Application to dynamically spin up Nostr relays.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebastiansieber/nostr-nip05-verification.git"
+  },
+  "author": "Sebastian Sieber",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sebastiansieber/nostr-nip05-verification/issues"
+  },
+  "homepage": "https://github.com/sebastiansieber/nostr-nip05-verification#readme",
+  "dependencies": {
+    "ajv": "^8.12.0",
+    "cloudflare": "^2.9.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "helmet": "^6.0.1",
+    "mysql2": "^3.0.1"
+  }
+}
